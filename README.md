@@ -5,6 +5,9 @@
 </br>
 
 ## Why forked?
+
+Due to my personal use, I'd like to name venv based on root folder(e.g `myproject/myproject.venv`) which missing in the extension
+
 This project was forked from [autovenv by timothybrown](https://github.com/timothybrown/fish-autovenv), which has not been updated for more than three years.
 
 The project was forked because I wanted to add a few features and improve the plugin:
