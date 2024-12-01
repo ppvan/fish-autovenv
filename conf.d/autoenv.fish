@@ -20,7 +20,15 @@ function applyAutoenv
   # contains a `bin/activate.fish` file. If a venv is found we go ahead and break out of the loop,
   # otherwise continue. We go through all of this instead of just checking the CWD to handle cases
   # where the user moves into a sub-directory of the venv.
-  set _tree (pwd)
+
+  set _venv_count (count *.venv)
+
+  if test $_venv_count = "1"
+    set _tree (pwd)/*.venv
+  else
+    set _tree (pwd)
+  end
+  
   while test $_tree != "/"
     set -l _activate (string join '/' "$_tree" "$autovenv_dir" "bin/activate.fish")
     set -l _activate (string replace -a "//" "/" "$_activate")
